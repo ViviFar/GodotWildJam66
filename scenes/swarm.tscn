@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://djqi83v5f1n0d"]
+
+[ext_resource type="PackedScene" uid="uid://dwpfrfl6vsspm" path="res://scenes/ant.tscn" id="1_pmnwb"]
+
+[node name="Swarm" type="Node2D"]
+
+[node name="Ants" type="Node2D" parent="."]
+
+[node name="Ant" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(1, -8)
+
+[node name="Ant2" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(-26, -43)
+
+[node name="Ant3" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(32, 12)
+
+[node name="Ant4" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(-43, 7)
+
+[node name="Ant5" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(28, -32)
+
+[node name="Ant6" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(4, -31)
+
+[node name="Ant7" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(-24, -17)
+
+[node name="Ant8" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(24, -11)
+
+[node name="Ant9" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(10, 12)
+
+[node name="Ant10" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(-12, 12)

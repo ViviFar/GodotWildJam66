@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwpfrfl6vsspm"]
+
+[ext_resource type="Script" path="res://scripts/ant.gd" id="1_ghlou"]
+
+[sub_resource type="Gradient" id="Gradient_taqa2"]
+colors = PackedColorArray(0, 0.180392, 0, 1, 0, 0.419608, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sxfd0"]
+gradient = SubResource("Gradient_taqa2")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yef81"]
+
+[node name="Ant" type="CharacterBody2D" groups=["ants"]]
+collision_layer = 2
+script = ExtResource("1_ghlou")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = SubResource("GradientTexture2D_sxfd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yef81")
