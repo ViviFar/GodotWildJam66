@@ -6,13 +6,17 @@ var neighbors
 var neighbors_directions
 const N = 10
 var sigma_repulsion = 4.6
-var weight_repulsion = 1.0
-var weight_cohesion = 2.0
-var weight_player = 1.0
+var weight_repulsion = 10.0
+var weight_cohesion = 10.0
+var weight_player = 10.0
+var weight_stabilize = 2.0
+var weight_random = 10.0
 
-var f_r
-var f_c
-var f_p
+var f_r # repulsive
+var f_c # cohesive
+var f_p # player
+var f_s # stabilize
+var f_rand # random
 var total_force
 var new_velocity
 
@@ -21,7 +25,7 @@ func _ready():
 
 func find_neighbors():
 	'''
-	find the 6 closest ants, used for force computation
+	find the N closest ants, used for force computation
 	'''
 	neighbors = []
 	var ant_dist
@@ -73,10 +77,16 @@ func compute_cohesive_force():
 	var f
 	var s = Vector2(0.0, 0.0)
 	var dir
+	var neighbor
+	var N_c = N
 	for neighbor_index in len(neighbors):
+		neighbor = neighbors[neighbor_index]
+		if self.position.distance_to(neighbor.position) < $Sprite2D.texture.get_width():
+			N_c -= 1
+			continue
 		dir = neighbors_directions[neighbor_index]
 		s = s + dir
-	f = weight_cohesion * s / N
+	f = weight_cohesion * s / N_c
 	return f
 
 func compute_player_force():
@@ -94,6 +104,22 @@ func compute_player_force():
 		f.y += 1
 	f = weight_player * f
 	return f
+	
+func compute_stabilize_force():
+	'''
+	Computes a force that slows down the general motion
+	'''
+	var f
+	f = -weight_stabilize*get_velocity().normalized()
+	return f
+	
+func compute_random_force():
+	'''
+	Computes a random force
+	'''
+	var f
+	f = weight_random*Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0))
+	return f
 
 func _physics_process(delta):
 	find_neighbors()
@@ -101,7 +127,9 @@ func _physics_process(delta):
 	f_r = compute_repulsive_force()
 	f_c = compute_cohesive_force()
 	f_p = compute_player_force()
-	total_force = 10*(f_r + f_c + f_p)
+	f_s = compute_stabilize_force()
+	f_rand = compute_random_force()
+	total_force = 10*(f_r + f_c + f_p + f_s + f_rand)
 	new_velocity = get_velocity() + (1/1.0)*total_force*delta
 	set_velocity(new_velocity)
 	move_and_slide()
