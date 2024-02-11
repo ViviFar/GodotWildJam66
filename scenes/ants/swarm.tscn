@@ -7,7 +7,7 @@
 [node name="Ants" type="Node2D" parent="."]
 
 [node name="Ant" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(1, -8)
+position = Vector2(16, 28)
 
 [node name="Ant2" parent="Ants" instance=ExtResource("1_pmnwb")]
 position = Vector2(-26, -43)
@@ -31,7 +31,37 @@ position = Vector2(-24, -17)
 position = Vector2(24, -11)
 
 [node name="Ant9" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(10, 12)
+position = Vector2(68, 46)
 
 [node name="Ant10" parent="Ants" instance=ExtResource("1_pmnwb")]
 position = Vector2(-12, 12)
+
+[node name="Ant11" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(58, -20)
+
+[node name="Ant12" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(-56, 79)
+
+[node name="Ant13" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(-14, 80)
+
+[node name="Ant14" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(27, 66)
+
+[node name="Ant15" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(74, 1)
+
+[node name="Ant16" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(-66, 32)
+
+[node name="Ant17" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(-60, -18)
+
+[node name="Ant18" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(-39, 43)
+
+[node name="Ant19" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(4, -8)
+
+[node name="Ant20" parent="Ants" instance=ExtResource("1_pmnwb")]
+position = Vector2(-15, 40)

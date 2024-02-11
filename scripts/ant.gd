@@ -4,12 +4,12 @@ extends CharacterBody2D
 
 var neighbors
 var neighbors_directions
-const N = 10
-var sigma_repulsion = 4.6
-var weight_repulsion = 10.0
+const N = 20
+var sigma_repulsion = 6.6
+var weight_repulsion = 20.0
 var weight_cohesion = 10.0
 var weight_player = 10.0
-var weight_stabilize = 2.0
+var weight_stabilize = 5.0
 var weight_random = 10.0
 
 var f_r # repulsive
@@ -81,12 +81,15 @@ func compute_cohesive_force():
 	var N_c = N
 	for neighbor_index in len(neighbors):
 		neighbor = neighbors[neighbor_index]
-		if self.position.distance_to(neighbor.position) < $Sprite2D.texture.get_width():
+		if self.position.distance_to(neighbor.position) < $Sprite2D.texture.get_width()/1.0:
 			N_c -= 1
 			continue
 		dir = neighbors_directions[neighbor_index]
 		s = s + dir
-	f = weight_cohesion * s / N_c
+	if N_c > 0:
+		f = weight_cohesion * s / N_c
+	else:
+		f = Vector2(0,0)
 	return f
 
 func compute_player_force():
@@ -129,6 +132,7 @@ func _physics_process(delta):
 	f_p = compute_player_force()
 	f_s = compute_stabilize_force()
 	f_rand = compute_random_force()
+	#print(f_r, f_c, f_p, f_s, f_rand)
 	total_force = 10*(f_r + f_c + f_p + f_s + f_rand)
 	new_velocity = get_velocity() + (1/1.0)*total_force*delta
 	set_velocity(new_velocity)
