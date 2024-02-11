@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://manioayfh5oc"]
 
-[ext_resource type="PackedScene" uid="uid://djqi83v5f1n0d" path="res://scenes/swarm.tscn" id="1_4pu1a"]
+[ext_resource type="PackedScene" uid="uid://djqi83v5f1n0d" path="res://scenes/ants/swarm.tscn" id="1_4pu1a"]
 
 [node name="Node2D" type="Node2D"]
 
