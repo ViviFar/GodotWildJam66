@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://2v5py7b05vsj"]
+
+[ext_resource type="Script" path="res://scripts/Spider.gd" id="1_xfdo6"]
+
+[sub_resource type="Gradient" id="Gradient_qlj85"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_awnnw"]
+gradient = SubResource("Gradient_qlj85")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4t5xv"]
+radius = 32.0156
+
+[node name="Spider" type="NavigationAgent2D"]
+script = ExtResource("1_xfdo6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_awnnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4t5xv")

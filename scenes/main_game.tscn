@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://manioayfh5oc"]
+[gd_scene load_steps=3 format=3 uid="uid://manioayfh5oc"]
 
 [ext_resource type="PackedScene" uid="uid://djqi83v5f1n0d" path="res://scenes/ants/swarm.tscn" id="1_4pu1a"]
+[ext_resource type="PackedScene" uid="uid://deddsy1rmx4af" path="res://scenes/Enemies/Spider.tscn" id="2_1iult"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Swarm" parent="." instance=ExtResource("1_4pu1a")]
 position = Vector2(200, 200)
+
+[node name="Spiderv2" parent="." instance=ExtResource("2_1iult")]
