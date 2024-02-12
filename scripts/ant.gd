@@ -22,6 +22,19 @@ var new_velocity
 
 func _ready():
 	ants.erase(self)
+	self.connect("tree_exiting", selfDestruct)
+	#for ant in ants:
+	#	ant.connect("tree_exited", onAntDestroyed)
+
+func onAntDestroyed()->void:
+	var tree = get_tree()
+	if(tree):
+		ants = tree.get_nodes_in_group("ants")
+		if(ants):
+			find_neighbors()
+
+func selfDestruct():
+	print(self.name + "self destruct")
 
 func find_neighbors():
 	'''
@@ -32,6 +45,9 @@ func find_neighbors():
 	var neighbor_dist
 	var neighbor
 	for ant in ants:
+		if(!ant):
+			ants = get_tree().get_nodes_in_group("ants")
+			break
 		# If we do not have 6 neighbors yet, simply add it
 		if len(neighbors) < N:
 			neighbors.append(ant)

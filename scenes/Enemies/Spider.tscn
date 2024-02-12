@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://deddsy1rmx4af"]
+[gd_scene load_steps=6 format=3 uid="uid://deddsy1rmx4af"]
 
 [ext_resource type="Script" path="res://scripts/Spider.gd" id="1_nutcy"]
 
@@ -13,6 +13,9 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_mm4gx"]
 gradient = SubResource("Gradient_vrtvo")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_e2w1p"]
+radius = 37.0
+
 [node name="Spiderv2" type="Node2D"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -26,3 +29,8 @@ texture = SubResource("GradientTexture2D_mm4gx")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
 debug_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_e2w1p")

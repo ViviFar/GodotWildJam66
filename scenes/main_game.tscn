@@ -9,3 +9,4 @@
 position = Vector2(200, 200)
 
 [node name="Spiderv2" parent="." instance=ExtResource("2_1iult")]
+position = Vector2(108, -46)
