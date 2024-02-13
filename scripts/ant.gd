@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 var neighbors
 var neighbors_directions
-const N = 20
+var N = 20
 var sigma_repulsion = 6.6
 var weight_repulsion = 20.0
 var weight_cohesion = 10.0
@@ -22,19 +22,17 @@ var new_velocity
 
 func _ready():
 	ants.erase(self)
-	self.connect("tree_exiting", selfDestruct)
-	#for ant in ants:
-	#	ant.connect("tree_exited", onAntDestroyed)
+	for ant in ants:
+		ant.connect("tree_exited", onAntDestroyed)
 
 func onAntDestroyed()->void:
 	var tree = get_tree()
 	if(tree):
 		ants = tree.get_nodes_in_group("ants")
-		if(ants):
-			find_neighbors()
+		ants.erase(self)
+		if len(ants) > N:
+			N = len(ants)
 
-func selfDestruct():
-	print(self.name + "self destruct")
 
 func find_neighbors():
 	'''
@@ -45,9 +43,6 @@ func find_neighbors():
 	var neighbor_dist
 	var neighbor
 	for ant in ants:
-		if(!ant):
-			ants = get_tree().get_nodes_in_group("ants")
-			break
 		# If we do not have 6 neighbors yet, simply add it
 		if len(neighbors) < N:
 			neighbors.append(ant)

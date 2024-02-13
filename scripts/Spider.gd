@@ -33,7 +33,7 @@ func eat():
 	target = null
 	set_physics_process(false)
 	await get_tree().create_timer(5).timeout
-	set_physics_process(false)
+	set_physics_process(true)
 	
 
 func _physics_process(delta) -> void:
