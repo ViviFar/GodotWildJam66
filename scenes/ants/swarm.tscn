@@ -1,8 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://djqi83v5f1n0d"]
+[gd_scene load_steps=3 format=3 uid="uid://djqi83v5f1n0d"]
 
 [ext_resource type="PackedScene" uid="uid://dwpfrfl6vsspm" path="res://scenes/ants/ant.tscn" id="1_pmnwb"]
 
+[sub_resource type="GDScript" id="GDScript_ku2e5"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
+
 [node name="Swarm" type="Node2D"]
+script = SubResource("GDScript_ku2e5")
 
 [node name="Ants" type="Node2D" parent="."]
 

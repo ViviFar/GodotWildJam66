@@ -36,7 +36,7 @@ func eat():
 	set_physics_process(true)
 	
 
-func _physics_process(delta) -> void:
+func _physics_process(delta: float) -> void:
 	var direction : Vector2 = Vector2()
 	
 	# used for testing in own scene. 
@@ -50,3 +50,4 @@ func _physics_process(delta) -> void:
 	
 	move_and_slide()
 	
+

@@ -1,36 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://deddsy1rmx4af"]
+[gd_scene load_steps=5 format=3 uid="uid://deddsy1rmx4af"]
 
 [ext_resource type="Script" path="res://scripts/Spider.gd" id="1_nutcy"]
+[ext_resource type="Texture2D" uid="uid://ytp07ex7u8xf" path="res://icon.svg" id="2_gredq"]
+[ext_resource type="PackedScene" uid="uid://vxm8qrjuwdrw" path="res://scenes/map.tscn" id="3_57mak"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_f7dya"]
-vertices = PackedVector2Array(1665, 196, 1589, -89, 1791, -38, 1773, 138, 1773, 139, 1606, 397, 1776, 342, 1704, 553, 1443, 566, 1642, 671, 1262, 787, 1217, 586, 873, 479, 861, 302, 660, 433, 860, 302, 478, 383, 569, 168, 479, 384, 416, 642, 622, 710, 431, 794, 218, 773, 404, 645, 270, 481, 142, 591, 91, 386, 132, 185, 275, 311, -55, 175, 125, 33, -56, -27, 68, -56)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4), PackedInt32Array(5, 0, 4, 6, 7), PackedInt32Array(8, 5, 7, 9, 10), PackedInt32Array(11, 8, 10), PackedInt32Array(11, 10, 12, 13), PackedInt32Array(13, 12, 14, 15), PackedInt32Array(16, 17, 15, 14, 18), PackedInt32Array(19, 18, 14, 20, 21), PackedInt32Array(19, 21, 22, 23), PackedInt32Array(24, 23, 22, 25, 26), PackedInt32Array(27, 28, 24, 26, 29), PackedInt32Array(30, 27, 29, 31, 32)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-67, -36, -65, 179, 82, 390, 132, 593, 212, 783, 433, 805, 632, 717, 668, 445, 869, 488, 1261, 799, 1650, 680, 1713, 558, 1786, 342, 1783, 139, 1802, -46, 1575, -104, 1655, 196, 1597, 392, 1438, 556, 1220, 576, 867, 294, 564, 155, 469, 382, 408, 634, 280, 478, 286, 306, 142, 180, 135, 32, 73, -68)])
-source_geometry_group_name = &"navigation_polygon_source_group"
-
-[sub_resource type="Gradient" id="Gradient_vrtvo"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mm4gx"]
-gradient = SubResource("Gradient_vrtvo")
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_e2w1p"]
-radius = 37.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_bj7c6"]
+radius = 61.2046
 
 [node name="Spiderv2" type="Node2D"]
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_f7dya")
+[node name="TileMap" parent="." instance=ExtResource("3_57mak")]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_nutcy")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = SubResource("GradientTexture2D_mm4gx")
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_gredq")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
 debug_enabled = true
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_e2w1p")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_bj7c6")

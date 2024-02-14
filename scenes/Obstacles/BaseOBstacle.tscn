@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5677idqokklx"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_wqm55"]
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, -3, 3, -7, -3, -7, -7, -3, -7, 3, -3, 7, 3, 7, 7, 3)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="Gradient" id="Gradient_2mlc4"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ei7p7"]
+gradient = SubResource("Gradient_2mlc4")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73iv0"]
+size = Vector2(14, 14)
+
+[node name="BaseOBstacle" type="NavigationObstacle2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_wqm55")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 0)
+scale = Vector2(0.21875, 0.21875)
+texture = SubResource("GradientTexture2D_ei7p7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_73iv0")

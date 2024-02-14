@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://manioayfh5oc"]
+[gd_scene load_steps=4 format=3 uid="uid://manioayfh5oc"]
 
 [ext_resource type="PackedScene" uid="uid://djqi83v5f1n0d" path="res://scenes/ants/swarm.tscn" id="1_4pu1a"]
 [ext_resource type="PackedScene" uid="uid://deddsy1rmx4af" path="res://scenes/Enemies/Spider.tscn" id="2_1iult"]
+[ext_resource type="PackedScene" uid="uid://vxm8qrjuwdrw" path="res://scenes/map.tscn" id="4_moad5"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("4_moad5")]
 
 [node name="Swarm" parent="." instance=ExtResource("1_4pu1a")]
 position = Vector2(200, 200)
