@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var speed:float = 200
 var accel:float = 7
+var distMax :float = 800
 var target : Node2D
 
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
@@ -48,6 +49,8 @@ func goToTarget(delta: float) ->void :
 	velocity = velocity.lerp(direction*speed, accel*delta)
 
 func _physics_process(delta: float) -> void:
+	if(target && self.global_position.distance_to(target.global_position)>distMax):
+		return
 	goToTarget(delta)
 	if(nav.is_target_reached() || self.global_position.distance_to(nav.target_position)<=100):
 		eat()
