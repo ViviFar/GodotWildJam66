@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var ants = get_tree().get_nodes_in_group("ants")
+@onready var nav: NavigationAgent2D = $NavigationAgent2D
+var mainAnt : Node2D
 
 var neighbors
 var neighbors_directions
@@ -9,7 +11,7 @@ var sigma_repulsion = 6.6
 var weight_repulsion = 20.0
 var weight_cohesion = 10.0
 var weight_player = 10.0
-var weight_stabilize = 5.0
+var weight_stabilize = 2.0
 var weight_random = 10.0
 
 var f_r # repulsive
@@ -19,11 +21,21 @@ var f_s # stabilize
 var f_rand # random
 var total_force
 var new_velocity
+var speed:float = 150
+var accel:float = 7
+
 
 func _ready():
+	mainAnt= get_tree().get_first_node_in_group("mainAnt")
+	set_physics_process(false)
+	call_deferred("actor_setup")
+	
+func actor_setup()->void:
+	await  get_tree().physics_frame
 	ants.erase(self)
 	for ant in ants:
 		ant.connect("tree_exited", onAntDestroyed)
+	set_physics_process(true)
 
 func onAntDestroyed()->void:
 	var tree = get_tree()
@@ -60,7 +72,7 @@ func compute_neighbors_directions():
 	neighbors_directions = []
 	var direction
 	for neighbor in neighbors:
-		direction = (neighbor.position - self.position) / self.position.distance_to(neighbor.position)
+		direction = (neighbor.position - self.position).normalized()
 		neighbors_directions.append(direction)
 
 func compute_repulsive_force():
@@ -80,44 +92,6 @@ func compute_repulsive_force():
 	f = - weight_repulsion * s / N
 	return f
 	
-func compute_cohesive_force():
-	'''
-	Computes a force that goes towards neighbors'
-	center of gravity
-	'''
-	var f
-	var s = Vector2(0.0, 0.0)
-	var dir
-	var neighbor
-	var N_c = N
-	for neighbor_index in len(neighbors):
-		neighbor = neighbors[neighbor_index]
-		if self.position.distance_to(neighbor.position) < $Sprite2D.texture.get_width()/1.0:
-			N_c -= 1
-			continue
-		dir = neighbors_directions[neighbor_index]
-		s = s + dir
-	if N_c > 0:
-		f = weight_cohesion * s / N_c
-	else:
-		f = Vector2(0,0)
-	return f
-
-func compute_player_force():
-	'''
-	Computes a force that goes towards player input direction
-	'''
-	var f = Vector2()
-	if Input.is_action_pressed("ui_left"):
-		f.x -= 1
-	if Input.is_action_pressed("ui_right"):
-		f.x += 1
-	if Input.is_action_pressed("ui_up"):
-		f.y -= 1
-	if Input.is_action_pressed("ui_down"):
-		f.y += 1
-	f = weight_player * f
-	return f
 	
 func compute_stabilize_force():
 	'''
@@ -135,16 +109,28 @@ func compute_random_force():
 	f = weight_random*Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0))
 	return f
 
+
+func goToTarget(delta: float) ->Vector2 :	
+	var direction : Vector2 = Vector2()
+	nav.target_position = mainAnt.position
+	var targetLocation = nav.get_next_path_position()
+	if(self.global_position.distance_to(targetLocation)>150):
+		print("destroying " + self.name + " cuz of distance of " + str(self.global_position.distance_to(targetLocation)))
+		self.queue_free()
+	direction = (targetLocation-self.global_position).normalized()	
+	var f  = weight_player *direction.normalized()
+	return f
+
+
 func _physics_process(delta):
 	find_neighbors()
 	compute_neighbors_directions()
 	f_r = compute_repulsive_force()
-	f_c = compute_cohesive_force()
-	f_p = compute_player_force()
+	f_p = goToTarget(delta)
 	f_s = compute_stabilize_force()
 	f_rand = compute_random_force()
 	#print(f_r, f_c, f_p, f_s, f_rand)
-	total_force = 10*(f_r + f_c + f_p + f_s + f_rand)
+	total_force = 10*(f_r + f_p +f_s + f_rand)
 	new_velocity = get_velocity() + (1/1.0)*total_force*delta
 	set_velocity(new_velocity)
 	move_and_slide()

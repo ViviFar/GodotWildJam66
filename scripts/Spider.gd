@@ -24,8 +24,13 @@ func findTarget() -> Vector2:
 		if(len(ants)>0):
 			var targetIndex : int = randi() % len(ants)			
 			target = ants[targetIndex]
-			return target.global_position	
+			target.connect("tree_exiting", destroyTarget)
+			return target.global_position
+	#used for testing purpose on spider scene
 	return get_global_mouse_position()
+
+func destroyTarget()->void:
+	target = null
 
 func eat():
 	print("eating " + target.name)
@@ -36,16 +41,15 @@ func eat():
 	set_physics_process(true)
 	
 
-func _physics_process(delta: float) -> void:
+func goToTarget(delta: float) ->void :	
 	var direction : Vector2 = Vector2()
-	
-	# used for testing in own scene. 
-	nav.target_position = findTarget()
-	
-	direction = (nav.get_next_path_position()-self.global_position).normalized()
-	
+	nav.target_position = findTarget()	
+	direction = (nav.get_next_path_position()-self.global_position).normalized()	
 	velocity = velocity.lerp(direction*speed, accel*delta)
-	if(nav.is_target_reached()):
+
+func _physics_process(delta: float) -> void:
+	goToTarget(delta)
+	if(nav.is_target_reached() || self.global_position.distance_to(nav.target_position)<=100):
 		eat()
 	
 	move_and_slide()

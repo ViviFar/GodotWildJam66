@@ -14,8 +14,6 @@ gradient = SubResource("Gradient_taqa2")
 [node name="Ant" type="CharacterBody2D" groups=["ants"]]
 collision_layer = 2
 collision_mask = 3
-motion_mode = 1
-wall_min_slide_angle = 0.0
 floor_max_angle = 0.0
 script = ExtResource("1_ghlou")
 
