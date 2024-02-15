@@ -8,11 +8,11 @@ var neighbors
 var neighbors_directions
 var N = 20
 var sigma_repulsion = 6.6
-var weight_repulsion = 20.0
+var weight_repulsion = 30.0
 var weight_cohesion = 10.0
-var weight_player = 10.0
-var weight_stabilize = 2.0
-var weight_random = 10.0
+var weight_player = 100.0
+var weight_stabilize = 20.0
+var weight_random = 100.0
 
 var f_r # repulsive
 var f_c # cohesive
@@ -98,7 +98,8 @@ func compute_stabilize_force():
 	Computes a force that slows down the general motion
 	'''
 	var f
-	f = -weight_stabilize*get_velocity().normalized()
+	var velocity_norm = get_velocity().length() / (1 + get_velocity().length())
+	f = -weight_stabilize*velocity_norm*get_velocity().normalized()
 	return f
 	
 func compute_random_force():
@@ -114,11 +115,15 @@ func goToTarget(delta: float) ->Vector2 :
 	var direction : Vector2 = Vector2()
 	nav.target_position = mainAnt.position
 	var targetLocation = nav.get_next_path_position()
-	if(self.global_position.distance_to(targetLocation)>150):
-		print("destroying " + self.name + " cuz of distance of " + str(self.global_position.distance_to(targetLocation)))
+	if(self.global_position.distance_to(mainAnt.position)>500):
+		print("destroying " + self.name + " cuz of distance of " + str(self.global_position.distance_to(mainAnt.position)))
 		self.queue_free()
-	direction = (targetLocation-self.global_position).normalized()	
-	var f  = weight_player *direction.normalized()
+	direction = (targetLocation-self.global_position).normalized()
+	var error = self.global_position.distance_to(mainAnt.position)
+	if error < 60: error = 0
+	if error > 300: error = 300
+	error = error / (1 + error) # map to 0-1
+	var f  = weight_player *error*direction.normalized()
 	return f
 
 
@@ -129,8 +134,9 @@ func _physics_process(delta):
 	f_p = goToTarget(delta)
 	f_s = compute_stabilize_force()
 	f_rand = compute_random_force()
-	#print(f_r, f_c, f_p, f_s, f_rand)
+	# print(f_r, f_p, f_s, f_rand)
 	total_force = 10*(f_r + f_p +f_s + f_rand)
 	new_velocity = get_velocity() + (1/1.0)*total_force*delta
+	if new_velocity.length() > 300.0: new_velocity = new_velocity.normalized()*300.0
 	set_velocity(new_velocity)
 	move_and_slide()
