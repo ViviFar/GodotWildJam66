@@ -33,7 +33,9 @@ func findTarget() -> Vector2:
 func destroyTarget()->void:
 	target = null
 
-func eat():
+func eat() -> void:
+	if(!target):
+		return
 	print("eating " + target.name)
 	target.queue_free()
 	target = null
@@ -50,7 +52,7 @@ func goToTarget(delta: float) ->void :
 
 func _physics_process(delta: float) -> void:
 	if(target && self.global_position.distance_to(target.global_position)>distMax):
-		return
+			return
 	goToTarget(delta)
 	if(nav.is_target_reached() || self.global_position.distance_to(nav.target_position)<=100):
 		eat()

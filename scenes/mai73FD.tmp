@@ -32,7 +32,5 @@ scale = Vector2(0.2, 0.2)
 weight = 1000.0
 
 [node name="KillerObstacle" parent="." instance=ExtResource("6_pqnp7")]
-position = Vector2(562, 682)
+position = Vector2(1362, 557)
 timerBeforeDeath = 5.0
-
-[editable path="KillerObstacle"]
