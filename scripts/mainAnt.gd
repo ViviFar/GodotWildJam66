@@ -1,10 +1,16 @@
 extends CharacterBody2D
 
+@onready var tilemap : TileMap = get_tree().get_nodes_in_group("Tilemap")[0]
+
 var speed : float = 150
+var pheromoneLayer : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+	
+func _process(_delta : float):
+	var tile_pos = tilemap.local_to_map(self.global_position)
 	
 func compute_player_direction() -> Vector2:
 	'''
