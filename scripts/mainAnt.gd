@@ -35,4 +35,5 @@ func _physics_process(_delta):
 	newSpeed.x *= speed
 	newSpeed.y *= speed
 	self.velocity = newSpeed
-	move_and_slide()
+	var move = move_and_slide()
+	print(move)
