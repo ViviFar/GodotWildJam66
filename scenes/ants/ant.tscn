@@ -1,6 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwpfrfl6vsspm"]
+[gd_scene load_steps=15 format=3 uid="uid://dwpfrfl6vsspm"]
 
 [ext_resource type="Script" path="res://scripts/ant.gd" id="1_ghlou"]
+[ext_resource type="Texture2D" uid="uid://b8i0ngywrnpwp" path="res://Sprite/ant/ant0000.png" id="2_nbyhr"]
+[ext_resource type="Texture2D" uid="uid://dafllfgnyf6up" path="res://Sprite/ant/ant0006.png" id="3_vn2ei"]
+[ext_resource type="Texture2D" uid="uid://d4hs4ko0u63g5" path="res://Sprite/ant/ant0012.png" id="4_njgt7"]
+[ext_resource type="Texture2D" uid="uid://bbi7b5ibeuwjk" path="res://Sprite/ant/ant0018.png" id="5_erl8n"]
+[ext_resource type="Texture2D" uid="uid://60atngc3w5bj" path="res://Sprite/ant/ant0024.png" id="6_xdeau"]
+[ext_resource type="Texture2D" uid="uid://yve8ie56xn8f" path="res://Sprite/ant/ant0042.png" id="7_7suf6"]
+[ext_resource type="Texture2D" uid="uid://dbnml6gk15eit" path="res://Sprite/ant/ant0048.png" id="8_g68uq"]
+[ext_resource type="Texture2D" uid="uid://nssx2wb33phq" path="res://Sprite/ant/ant0054.png" id="9_t2x1y"]
+[ext_resource type="Texture2D" uid="uid://dxtjv3f1b3lvh" path="res://Sprite/ant/ant0060.png" id="10_i7vkp"]
 
 [sub_resource type="Gradient" id="Gradient_taqa2"]
 offsets = PackedFloat32Array(0, 0.996117, 1)
@@ -8,6 +17,41 @@ colors = PackedColorArray(0, 0.180392, 0, 1, 0.508712, 0, 0.247166, 1, 0, 0.4196
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sxfd0"]
 gradient = SubResource("Gradient_taqa2")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g5wk1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nbyhr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vn2ei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_njgt7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_erl8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xdeau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7suf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g68uq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t2x1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i7vkp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yef81"]
 
@@ -19,8 +63,14 @@ floor_max_angle = 0.0
 script = ExtResource("1_ghlou")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.3, 0.3)
 texture = SubResource("GradientTexture2D_sxfd0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g5wk1")
+frame = 8
+frame_progress = 0.702392
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yef81")

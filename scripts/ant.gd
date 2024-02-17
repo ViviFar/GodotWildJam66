@@ -3,6 +3,10 @@ extends CharacterBody2D
 
 @onready var ants = get_tree().get_nodes_in_group("ants")
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
+@onready var _animated_sprite = $AnimatedSprite2D
+var anim_delay : float = randf_range(0.0, 1.0)
+var anim_flag : bool = false
+
 var mainAnt : Node2D
 
 var neighbors
@@ -161,3 +165,9 @@ func _physics_process(delta):
 	if new_velocity.length() > 300.0: new_velocity = new_velocity.normalized()*300.0
 	set_velocity(new_velocity)
 	move_and_slide()
+	
+func _process(_delta):
+	if not anim_flag:
+		await get_tree().create_timer(anim_delay).timeout
+		anim_flag = true
+	_animated_sprite.play("default")
