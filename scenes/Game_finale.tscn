@@ -1,5 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://2g2i3aoeipig"]
 
+[ext_resource type="Script" path="res://scenes/Game_finale.gd" id="1_f1he0"]
 [ext_resource type="Texture2D" uid="uid://b4ay83w4s1gi5" path="res://Sprite/spritesheet.png" id="1_yb15v"]
 [ext_resource type="PackedScene" uid="uid://d0gm7gtimeu64" path="res://scenes/Obstacles/Oil/ObstacleOil1.tscn" id="2_la2ik"]
 [ext_resource type="PackedScene" uid="uid://6l0xhl6sitho" path="res://scenes/ants/swarm.tscn" id="2_xdnaa"]
@@ -393,6 +394,7 @@ sources/0 = SubResource("TileSetAtlasSource_xi0ex")
 radius = 837.101
 
 [node name="GameFinale" type="Node2D"]
+script = ExtResource("1_f1he0")
 
 [node name="TileMap" type="TileMap" parent="." groups=["Tilemap"]]
 tile_set = SubResource("TileSet_4h4vy")
