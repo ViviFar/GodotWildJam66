@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://2g2i3aoeipig"]
+[gd_scene load_steps=31 format=3 uid="uid://2g2i3aoeipig"]
 
 [ext_resource type="Texture2D" uid="uid://b4ay83w4s1gi5" path="res://Sprite/spritesheet.png" id="1_yb15v"]
 [ext_resource type="PackedScene" uid="uid://d0gm7gtimeu64" path="res://scenes/Obstacles/Oil/ObstacleOil1.tscn" id="2_la2ik"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bcdkhmt1xj7eh" path="res://scenes/Obstacles/AttractionObstacle.tscn" id="5_2x0w1"]
 [ext_resource type="Texture2D" uid="uid://rysvmb67qv6m" path="res://Sprite/obstacles/obstacle_repul2.png" id="6_646tg"]
 [ext_resource type="Texture2D" path="res://Sprite/start.png" id="10_ppjuy"]
+[ext_resource type="Texture2D" path="res://Sprite/end.png" id="11_refd7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b8vvu"]
 vertices = PackedVector2Array(128, 128, -128, 128, -128, -128, 128, -128)
@@ -1921,6 +1922,11 @@ position = Vector2(11964, -6487)
 [node name="Start" type="Sprite2D" parent="."]
 position = Vector2(1809, -1295)
 texture = ExtResource("10_ppjuy")
+
+[node name="End" type="Sprite2D" parent="."]
+position = Vector2(43098.5, -4025)
+scale = Vector2(1.56445, 6)
+texture = ExtResource("11_refd7")
 
 [editable path="Attracteurs/RepulsiveObstacle"]
 [editable path="Attracteurs/RepulsiveObstacle3"]
