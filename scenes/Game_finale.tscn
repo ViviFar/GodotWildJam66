@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://2g2i3aoeipig"]
+[gd_scene load_steps=32 format=3 uid="uid://2g2i3aoeipig"]
 
 [ext_resource type="Script" path="res://scenes/Game_finale.gd" id="1_f1he0"]
 [ext_resource type="Texture2D" uid="uid://b4ay83w4s1gi5" path="res://Sprite/spritesheet.png" id="1_yb15v"]
@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://deddsy1rmx4af" path="res://scenes/Enemies/Spider.tscn" id="4_7gcbb"]
 [ext_resource type="PackedScene" uid="uid://bcdkhmt1xj7eh" path="res://scenes/Obstacles/AttractionObstacle.tscn" id="5_2x0w1"]
 [ext_resource type="Texture2D" uid="uid://rysvmb67qv6m" path="res://Sprite/obstacles/obstacle_repul2.png" id="6_646tg"]
-[ext_resource type="Texture2D" path="res://Sprite/start.png" id="10_ppjuy"]
-[ext_resource type="Texture2D" path="res://Sprite/end.png" id="11_refd7"]
+[ext_resource type="Texture2D" uid="uid://tpp4lerfbbm1" path="res://Sprite/start.png" id="10_ppjuy"]
+[ext_resource type="Texture2D" uid="uid://cdqunkmvq24pu" path="res://Sprite/end.png" id="11_refd7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b8vvu"]
 vertices = PackedVector2Array(128, 128, -128, 128, -128, -128, 128, -128)
