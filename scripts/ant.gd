@@ -31,6 +31,8 @@ var new_velocity
 var speed:float = 150
 var accel:float = 7
 
+var count : int = 0
+var totalDelta : float = 0
 
 func _ready():
 	externalInfluence = []
@@ -136,7 +138,7 @@ func goToTarget(delta: float) ->Vector2 :
 	direction = (targetLocation-self.global_position).normalized()
 	var error = self.global_position.distance_to(mainAnt.position)
 	if error < 60: error = 0
-	if error > 300: error = 300
+	if error > 500: error = 500
 	error = error / (1 + error) # map to 0-1
 	var f  = weight_player *error*direction.normalized()
 	return f
@@ -152,18 +154,24 @@ func RemoveExternalForce(origin:Vector2, weight:float) -> bool:
 	return false
 
 func _physics_process(delta):
+	if(count < 4):
+		count+=1
+		totalDelta+=delta
+		return
+	count = 0
 	find_neighbors()
 	compute_neighbors_directions()
 	f_r = compute_repulsive_force()
-	f_p = goToTarget(delta)
+	f_p = goToTarget(totalDelta)
 	f_s = compute_stabilize_force()
 	f_rand = compute_random_force()
 	f_ext = compute_external_forces()
 	# print(f_r, f_p, f_s, f_rand)
 	total_force = 10*(f_r + f_p +f_s + f_rand + f_ext)
-	new_velocity = get_velocity() + (1/1.0)*total_force*delta
-	if new_velocity.length() > 300.0: new_velocity = new_velocity.normalized()*300.0
+	new_velocity = get_velocity() + (1/1.0)*total_force*totalDelta
+	if new_velocity.length() > 500.0: new_velocity = new_velocity.normalized()*500.0
 	set_velocity(new_velocity)
+	totalDelta= 0
 	move_and_slide()
 	
 func _process(_delta):
