@@ -43,7 +43,7 @@ func eat() -> void:
 	target.queue_free()
 	target = null
 	set_physics_process(false)
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.5).timeout
 	set_physics_process(true)
 	
 
