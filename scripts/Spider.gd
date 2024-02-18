@@ -67,6 +67,5 @@ func _process(_delta):
 		await get_tree().create_timer(anim_delay).timeout
 		anim_flag = true
 	_animated_sprite.play("default")
-	_animated_sprite.play("default")
 	
 

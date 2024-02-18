@@ -28,202 +28,25 @@ position = Vector2(1, -8)
 position = Vector2(-26, -43)
 
 [node name="Ant3" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(32, 12)
+position = Vector2(-26, -43)
 
 [node name="Ant4" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-43, 7)
+position = Vector2(-26, -43)
 
 [node name="Ant5" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(28, -32)
+position = Vector2(-26, -43)
 
 [node name="Ant6" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(4, -31)
+position = Vector2(-26, -43)
 
 [node name="Ant7" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-24, -17)
+position = Vector2(-26, -43)
 
 [node name="Ant8" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(24, -11)
+position = Vector2(-26, -43)
 
 [node name="Ant9" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(10, 12)
+position = Vector2(-26, -43)
 
 [node name="Ant10" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-12, 12)
-
-[node name="Ant11" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(41, -96)
-
-[node name="Ant12" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(14, -131)
-
-[node name="Ant13" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(72, -76)
-
-[node name="Ant14" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-3, -81)
-
-[node name="Ant15" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(68, -120)
-
-[node name="Ant16" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(44, -119)
-
-[node name="Ant17" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(16, -105)
-
-[node name="Ant18" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(64, -99)
-
-[node name="Ant19" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(50, -76)
-
-[node name="Ant20" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(28, -76)
-
-[node name="Ant21" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-63, -88)
-
-[node name="Ant22" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-90, -123)
-
-[node name="Ant23" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-32, -68)
-
-[node name="Ant24" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-107, -73)
-
-[node name="Ant25" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-36, -112)
-
-[node name="Ant26" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-60, -111)
-
-[node name="Ant27" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-88, -97)
-
-[node name="Ant28" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-40, -91)
-
-[node name="Ant29" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-54, -68)
-
-[node name="Ant30" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-76, -68)
-
-[node name="Ant31" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-103, -8)
-
-[node name="Ant32" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-130, -43)
-
-[node name="Ant33" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-72, 12)
-
-[node name="Ant34" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-147, 7)
-
-[node name="Ant35" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-76, -32)
-
-[node name="Ant36" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-100, -31)
-
-[node name="Ant37" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-128, -17)
-
-[node name="Ant38" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-80, -11)
-
-[node name="Ant39" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-94, 12)
-
-[node name="Ant40" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-116, 12)
-
-[node name="Ant41" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(97, -8)
-
-[node name="Ant42" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(70, -43)
-
-[node name="Ant43" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(128, 12)
-
-[node name="Ant44" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(53, 7)
-
-[node name="Ant45" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(124, -32)
-
-[node name="Ant46" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(100, -31)
-
-[node name="Ant47" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(72, -17)
-
-[node name="Ant48" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(120, -11)
-
-[node name="Ant49" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(106, 12)
-
-[node name="Ant50" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(84, 12)
-
-[node name="Ant51" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-111, 72)
-
-[node name="Ant52" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-138, 37)
-
-[node name="Ant53" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-80, 92)
-
-[node name="Ant54" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-155, 87)
-
-[node name="Ant55" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-84, 48)
-
-[node name="Ant56" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-108, 49)
-
-[node name="Ant57" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-136, 63)
-
-[node name="Ant58" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-88, 69)
-
-[node name="Ant59" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-102, 92)
-
-[node name="Ant60" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(-124, 92)
-
-[node name="Ant61" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(121, 80)
-
-[node name="Ant62" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(94, 45)
-
-[node name="Ant63" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(152, 100)
-
-[node name="Ant64" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(77, 95)
-
-[node name="Ant65" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(148, 56)
-
-[node name="Ant66" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(124, 57)
-
-[node name="Ant67" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(96, 71)
-
-[node name="Ant68" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(144, 77)
-
-[node name="Ant69" parent="Ants" instance=ExtResource("1_pmnwb")]
-position = Vector2(130, 100)
+position = Vector2(-26, -43)

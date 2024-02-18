@@ -166,7 +166,7 @@ func _physics_process(delta):
 	f_s = compute_stabilize_force()
 	f_rand = compute_random_force()
 	f_ext = compute_external_forces()
-	# print(f_r, f_p, f_s, f_rand)
+	#print(f_r, f_p, f_s, f_rand)
 	total_force = 10*(f_r + f_p +f_s + f_rand + f_ext)
 	new_velocity = get_velocity() + (1/1.0)*total_force*totalDelta
 	if new_velocity.length() > 5000.0: new_velocity = new_velocity.normalized()*5000.0
