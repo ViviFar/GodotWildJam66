@@ -1,7 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://deddsy1rmx4af"]
+[gd_scene load_steps=10 format=3 uid="uid://deddsy1rmx4af"]
 
 [ext_resource type="Script" path="res://scripts/Spider.gd" id="1_nutcy"]
 [ext_resource type="Texture2D" uid="uid://ytp07ex7u8xf" path="res://icon.svg" id="2_gredq"]
+[ext_resource type="Texture2D" uid="uid://dl6mq75jy13um" path="res://Sprite/spider/spider0000.png" id="3_cuf4r"]
+[ext_resource type="Texture2D" uid="uid://cwjyjj1kw2iij" path="res://Sprite/spider/spider0001.png" id="4_gdw7b"]
+[ext_resource type="Texture2D" uid="uid://babexiymwnqn1" path="res://Sprite/spider/spider0002.png" id="5_81yty"]
+[ext_resource type="Texture2D" uid="uid://d3vi8x1dhmg62" path="res://Sprite/spider/spider0003.png" id="6_jn7n5"]
+[ext_resource type="Texture2D" uid="uid://c6am6k73bvsli" path="res://Sprite/spider/spider0004.png" id="7_18kgd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_abw2y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cuf4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gdw7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_81yty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jn7n5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_18kgd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bj7c6"]
 radius = 61.2046
@@ -16,8 +44,14 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_nutcy")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+visible = false
 modulate = Color(1, 0, 0, 1)
 texture = ExtResource("2_gredq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_abw2y")
+frame = 3
+frame_progress = 0.303791
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
 debug_enabled = true

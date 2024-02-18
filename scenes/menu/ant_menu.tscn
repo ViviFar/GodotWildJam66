@@ -1,0 +1,53 @@
+[gd_scene load_steps=12 format=3 uid="uid://cgsqfmsoyxd03"]
+
+[ext_resource type="Script" path="res://scripts/ant_menu.gd" id="1_s1pgo"]
+[ext_resource type="Texture2D" uid="uid://b8i0ngywrnpwp" path="res://Sprite/ant/ant0000.png" id="1_uhkec"]
+[ext_resource type="Texture2D" uid="uid://dafllfgnyf6up" path="res://Sprite/ant/ant0006.png" id="2_hihpb"]
+[ext_resource type="Texture2D" uid="uid://d4hs4ko0u63g5" path="res://Sprite/ant/ant0012.png" id="3_hwlyb"]
+[ext_resource type="Texture2D" uid="uid://bbi7b5ibeuwjk" path="res://Sprite/ant/ant0018.png" id="4_a7ewn"]
+[ext_resource type="Texture2D" uid="uid://60atngc3w5bj" path="res://Sprite/ant/ant0024.png" id="5_k1qqg"]
+[ext_resource type="Texture2D" uid="uid://yve8ie56xn8f" path="res://Sprite/ant/ant0042.png" id="6_11nv1"]
+[ext_resource type="Texture2D" uid="uid://dbnml6gk15eit" path="res://Sprite/ant/ant0048.png" id="7_msv8v"]
+[ext_resource type="Texture2D" uid="uid://nssx2wb33phq" path="res://Sprite/ant/ant0054.png" id="8_5kipe"]
+[ext_resource type="Texture2D" uid="uid://dxtjv3f1b3lvh" path="res://Sprite/ant/ant0060.png" id="9_kqg1m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gawng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uhkec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hihpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hwlyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a7ewn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k1qqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_11nv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_msv8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5kipe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kqg1m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AntMenu" type="CharacterBody2D"]
+script = ExtResource("1_s1pgo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gawng")

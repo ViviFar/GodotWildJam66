@@ -1,0 +1,149 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmtrqah0w2jb0"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_fqfdp"]
+[ext_resource type="Texture2D" uid="uid://c7ovh8yjqknt" path="res://Sprite/menu/obstacle1.png" id="2_hj3de"]
+[ext_resource type="PackedScene" uid="uid://cgsqfmsoyxd03" path="res://scenes/menu/ant_menu.tscn" id="2_wh76s"]
+[ext_resource type="Texture2D" uid="uid://dr4kuyviw05w4" path="res://Sprite/menu/noBG-GWJ-Wallpaper 1080.png" id="3_q06kr"]
+[ext_resource type="Texture2D" uid="uid://ug8ylbwfynax" path="res://Sprite/menu/66-Escape.png" id="4_udi5t"]
+[ext_resource type="Texture2D" uid="uid://c4s5bgfgdm6x0" path="res://Sprite/menu/inside-box.png" id="5_0tj18"]
+[ext_resource type="Texture2D" uid="uid://didiixjwy2uxt" path="res://Sprite/menu/title.png" id="7_14f2d"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fqfdp")
+
+[node name="Obstacle1" type="Sprite2D" parent="."]
+position = Vector2(509, 514)
+texture = ExtResource("2_hj3de")
+
+[node name="Obstacle2" type="Sprite2D" parent="."]
+position = Vector2(1529, 517)
+texture = ExtResource("2_hj3de")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 311.0
+offset_right = 395.0
+offset_bottom = 626.0
+alignment = 1
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 483.0
+offset_right = 210.0
+offset_bottom = 694.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 100
+
+[node name="Quit" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Quit Game"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer3"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer3/CenterContainer"]
+position = Vector2(950, 150)
+scale = Vector2(0.178704, 0.178704)
+texture = ExtResource("3_q06kr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer3/CenterContainer"]
+position = Vector2(950, 300)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_udi5t")
+
+[node name="Sprite2D3" type="Sprite2D" parent="VBoxContainer3/CenterContainer"]
+position = Vector2(950, 450)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_0tj18")
+
+[node name="Ants" type="Node2D" parent="."]
+
+[node name="AntMenu" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(830, 308)
+
+[node name="AntMenu2" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(806, 238)
+
+[node name="AntMenu3" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(519, 368)
+
+[node name="AntMenu4" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(608, 514)
+
+[node name="AntMenu5" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(452, 417)
+
+[node name="AntMenu6" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(747, 419)
+
+[node name="AntMenu7" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(720, 136)
+
+[node name="AntMenu8" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(470, 477)
+
+[node name="AntMenu9" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(371, 373)
+
+[node name="AntMenu10" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(378, 266)
+
+[node name="AntMenu11" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(203, 247)
+
+[node name="AntMenu12" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(362, 184)
+
+[node name="AntMenu13" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(638, 388)
+
+[node name="AntMenu14" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(432, 257)
+
+[node name="AntMenu15" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(698, 287)
+
+[node name="AntMenu16" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(563, 185)
+
+[node name="AntMenu17" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(263, 314)
+
+[node name="AntMenu18" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(569, 295)
+
+[node name="AntMenu19" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(390, 584)
+
+[node name="AntMenu20" parent="Ants" instance=ExtResource("2_wh76s")]
+position = Vector2(261, 529)
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(425, 420)
+texture = ExtResource("7_14f2d")
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_quit_pressed"]
