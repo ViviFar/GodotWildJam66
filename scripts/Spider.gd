@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-var speed:float = 200
-var accel:float = 7
-var distMax :float = 800
+var speed:float = 525
+var accel:float = 50
+var distMax :float = 1200
 var target : Node2D
 
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
@@ -40,7 +40,7 @@ func eat() -> void:
 	target.queue_free()
 	target = null
 	set_physics_process(false)
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(1).timeout
 	set_physics_process(true)
 	
 

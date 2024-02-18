@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var ants = get_tree().get_nodes_in_group("ants")
 @export var timeBeforeDeathOutsidePheromone : float = 10
 
-var speed : float = 300
+var speed : float = 500
 var pheromoneLayer : int = 0
 var timer : float = 0
 var IsOnPheromone = "IsOnPheromone"
@@ -23,6 +23,7 @@ func _process(_delta : float):
 			if(timer>timeBeforeDeathOutsidePheromone):
 				ants = get_tree().get_nodes_in_group("ants")
 				var index = randi()%len(ants)
+				print("destroying " + ants[index].name + " cuz outside pheromone for " + str(timeBeforeDeathOutsidePheromone) + " seconds : " + str(timer))
 				ants[index].queue_free()
 				timer = 0
 		else:

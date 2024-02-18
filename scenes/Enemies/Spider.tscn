@@ -20,7 +20,6 @@ modulate = Color(1, 0, 0, 1)
 texture = ExtResource("2_gredq")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
-debug_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_bj7c6")

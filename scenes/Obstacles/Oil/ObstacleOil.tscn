@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo65e104pgwf1"]
+
+[ext_resource type="Texture2D" uid="uid://bcjnlciqcsifl" path="res://Sprite/obstacles/obstacle_static_oil.png" id="1_spg2k"]
+[ext_resource type="Script" path="res://scripts/KillOnContact.gd" id="1_xr1np"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k1t7"]
+size = Vector2(1027, 1023)
+
+[node name="ObstacleOil" type="RigidBody2D"]
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_xr1np")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_spg2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -0.5)
+shape = SubResource("RectangleShape2D_3k1t7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
