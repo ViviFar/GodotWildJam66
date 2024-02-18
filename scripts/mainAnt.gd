@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var ants = get_tree().get_nodes_in_group("ants")
 @export var timeBeforeDeathOutsidePheromone : float = 10
 
-var speed : float = 100
+var speed : float = 300
 var pheromoneLayer : int = 0
 var timer : float = 0
 var IsOnPheromone = "IsOnPheromone"

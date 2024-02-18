@@ -15,6 +15,7 @@ floor_max_angle = 0.0
 script = ExtResource("1_dh4bq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_i3hxa")
 
@@ -22,3 +23,4 @@ texture = ExtResource("2_i3hxa")
 shape = SubResource("CircleShape2D_4224j")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.9, 0.9)

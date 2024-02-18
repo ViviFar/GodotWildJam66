@@ -12,12 +12,12 @@ var mainAnt : Node2D
 var neighbors
 var neighbors_directions
 var N = 50
-var sigma_repulsion = 6.6
-var weight_repulsion = 30.0
+var sigma_repulsion = 8
+var weight_repulsion = 8000.0
 var weight_cohesion = 10.0
-var weight_player = 100.0
-var weight_stabilize = 20.0
-var weight_random = 100.0
+var weight_player = 2000.0
+var weight_stabilize = 1200.0
+var weight_random = 2000.0
 
 var f_r # repulsive
 var f_c # cohesive
@@ -31,7 +31,7 @@ var new_velocity
 var speed:float = 150
 var accel:float = 7
 
-var count : int = 0
+var count : int = 5
 var totalDelta : float = 0
 
 func _ready():
@@ -131,14 +131,14 @@ func compute_external_forces() -> Vector2:
 func goToTarget(delta: float) ->Vector2 :	
 	var direction : Vector2 = Vector2()
 	nav.target_position = mainAnt.position
-	var targetLocation = nav.get_next_path_position()
+	var targetLocation = mainAnt.position
 	if(self.global_position.distance_to(mainAnt.position)>1000):
 		print("destroying " + self.name + " cuz of distance of " + str(self.global_position.distance_to(mainAnt.position)))
 		self.queue_free()
 	direction = (targetLocation-self.global_position).normalized()
 	var error = self.global_position.distance_to(mainAnt.position)
 	if error < 60: error = 0
-	if error > 500: error = 500
+	if error > 1500: error = 1500
 	error = error / (1 + error) # map to 0-1
 	var f  = weight_player *error*direction.normalized()
 	return f
@@ -169,7 +169,7 @@ func _physics_process(delta):
 	# print(f_r, f_p, f_s, f_rand)
 	total_force = 10*(f_r + f_p +f_s + f_rand + f_ext)
 	new_velocity = get_velocity() + (1/1.0)*total_force*totalDelta
-	if new_velocity.length() > 500.0: new_velocity = new_velocity.normalized()*500.0
+	if new_velocity.length() > 2000.0: new_velocity = new_velocity.normalized()*2000.0
 	set_velocity(new_velocity)
 	totalDelta= 0
 	move_and_slide()
