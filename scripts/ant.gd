@@ -11,7 +11,7 @@ var mainAnt : Node2D
 
 var neighbors
 var neighbors_directions
-var N = 20
+var N = 50
 var sigma_repulsion = 6.6
 var weight_repulsion = 30.0
 var weight_cohesion = 10.0
@@ -130,7 +130,7 @@ func goToTarget(delta: float) ->Vector2 :
 	var direction : Vector2 = Vector2()
 	nav.target_position = mainAnt.position
 	var targetLocation = nav.get_next_path_position()
-	if(self.global_position.distance_to(mainAnt.position)>500):
+	if(self.global_position.distance_to(mainAnt.position)>1000):
 		print("destroying " + self.name + " cuz of distance of " + str(self.global_position.distance_to(mainAnt.position)))
 		self.queue_free()
 	direction = (targetLocation-self.global_position).normalized()

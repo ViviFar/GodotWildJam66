@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dpnal7ah0b6ly"]
 
 [ext_resource type="PackedScene" uid="uid://dcxj2xca7nvt4" path="res://scenes/map_v2.tscn" id="1_3dpqc"]
-[ext_resource type="PackedScene" uid="uid://djqi83v5f1n0d" path="res://scenes/ants/swarm.tscn" id="1_mt1vm"]
+[ext_resource type="PackedScene" uid="uid://6l0xhl6sitho" path="res://scenes/ants/swarm.tscn" id="1_mt1vm"]
 [ext_resource type="PackedScene" uid="uid://bsj1yrl0u3x0g" path="res://scenes/ants/mainAnt.tscn" id="3_akepf"]
 
 [node name="Node2D" type="Node2D"]
