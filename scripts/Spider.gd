@@ -6,6 +6,9 @@ var distMax :float = 1200
 var target : Node2D
 
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
+@onready var _animated_sprite = $AnimatedSprite2D
+var anim_delay : float = randf_range(0.0, 1.0)
+var anim_flag : bool = false
 
 func _ready():
 	set_physics_process(false)
@@ -58,5 +61,12 @@ func _physics_process(delta: float) -> void:
 		eat()
 	
 	move_and_slide()
+	
+func _process(_delta):
+	if not anim_flag:
+		await get_tree().create_timer(anim_delay).timeout
+		anim_flag = true
+	_animated_sprite.play("default")
+	_animated_sprite.play("default")
 	
 
